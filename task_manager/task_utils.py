@@ -1,13 +1,15 @@
 from datetime import datetime
 from .validation import validate_task_title, validate_task_description, validate_due_date
 
-# List to store tasks
 tasks = []
 
 def add_task(title, description, due_date):
-    if not (validate_task_title(title) and 
-            validate_task_description(description) and 
-            validate_due_date(due_date)):
+    try:
+        validate_task_title(title)
+        validate_task_description(description)
+        validate_due_date(due_date)
+    except ValueError as ve:
+        print(f"Validation Error: {ve}")
         return
 
     task = {
