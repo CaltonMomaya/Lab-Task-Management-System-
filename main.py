@@ -20,12 +20,10 @@ def main():
             if not tasks:
                 print("No tasks available to mark as complete.")
                 continue
-
             print("\nAll Tasks:")
             for idx, t in enumerate(tasks, start=1):
                 status = "Completed" if t["completed"] else "Pending"
                 print(f"{idx}. {t['title']} - {status}")
-
             try:
                 task_num = int(input("Enter task number to mark as complete: "))
                 mark_task_as_complete(task_num)
